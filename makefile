@@ -9,9 +9,9 @@ isort: isort.o libmyEx3.a
 	$(CC) $(FLAGS) -o isort isort.o libmyEx3.a
 libmyEx3.a: txtfind.o isort.o
 	$(AR) -rcs libmyEx3.a txtfind.o isort.o 
-txtfind.o: txtfind.c
+txtfind.o: txtfind.c txtfind.h
 	$(CC) $(FLAGS) -c $< -o $@
-isort.o: isort.c
+isort.o: isort.c isort.h
 	$(CC) $(FLAGS) -c $< -o $@
 .PHONY: clean all
 clean:

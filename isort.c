@@ -1,3 +1,4 @@
+#include "isort.h"
 #include <stdio.h>
 #define NUMBERS 50
 void shift_element(int* arr, int i){
@@ -37,8 +38,8 @@ int main(){
     int arr[NUMBERS]={0};
     int x;
     int i=0;
+    printf("Please enter 50 numbers\n");
     while(i<NUMBERS){
-        printf("Please enter a number\n");
         if(scanf("%d",&x)==1){
             *(arr+i)=x;
             i++;

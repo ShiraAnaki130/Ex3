@@ -1,3 +1,4 @@
+#include "txtfind.h"
 #include <stdio.h>
 #include <string.h>
 #define LINE 256
