@@ -6,7 +6,7 @@
 int getLine(char s[]){
     char c= getc(stdin);
     int index=0;
-    while(c!='\n'&&c!=EOF&&index<(LINE-1)){
+    while(c!='\r'&&c!='\n'&&c!=EOF&&index<(LINE-1)){
         s[index]=c;
         index++;
         c= getc(stdin);
@@ -18,7 +18,7 @@ int getLine(char s[]){
 int getWord(char w[]){
     char c= getc(stdin);
     int index=0;
-    while(c!='\n'&&c!='\t'&&c!=' '&&c!=EOF&&index<(WORD-1)){
+    while(c!='\r'&&c!='\n'&&c!='\t'&&c!=' '&&c!=EOF&&index<(WORD-1)){
         w[index]=c;
         index++;
         c= getc(stdin);
