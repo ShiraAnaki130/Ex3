@@ -6,7 +6,7 @@
 int getLine(char s[]){
     char c= getc(stdin);
     int index=0;
-    while(c!='\r'&&c!='\n'&&c!=EOF&&index<(LINE-1)){
+    while(c!='\n'&&c!=EOF&&index<(LINE-1)){
         s[index]=c;
         index++;
         c= getc(stdin);
