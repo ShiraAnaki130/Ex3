@@ -6,13 +6,13 @@
 int getLine(char s[]){
     char c= getc(stdin);
     int index=0;
-    while(c!='\r'&&c!='\n'&&c!=EOF&&index<(LINE-1)){
+    while(c!='\n'&&c!=EOF&&index<(LINE-1)){
         s[index]=c;
         index++;
         c= getc(stdin);
     }
-    if(c==EOF) return -1;
     s[index]='\0';
+    if(c==EOF) return -1;
     return strlen(s);
 }
 int getWord(char w[]){
@@ -23,8 +23,8 @@ int getWord(char w[]){
         index++;
         c= getc(stdin);
     }
-    if(c==EOF) return -1;
     w[index]='\0';
+    if(c==EOF) return -1;
     return strlen(w);
 }
 int substring(char* str1, char* str2){
@@ -53,6 +53,7 @@ void print_lines(char *str){
         if(substring(poniter_s,str)){printf("%s\n",s);}
         numberOfChars=getLine(poniter_s);
     }
+    if(substring(poniter_s,str)){printf("%s\n",s);}
 }
 void print_similar_words(char *str){
     char w[WORD];
@@ -60,11 +61,19 @@ void print_similar_words(char *str){
     int numberOfChars=getWord(pointer_w);
     int n;
     while(numberOfChars!=-1){
+        if(w[0]!='\0'){
+            n=strlen(pointer_w)-strlen(str);
+            if(n>=0){
+                if(similar(pointer_w,str,1)){printf("%s\n",w);}
+            }
+        }
+        numberOfChars=getWord(pointer_w); 
+    }
+    if(w[0]!='\0'){
         n=strlen(pointer_w)-strlen(str);
         if(n>=0){
             if(similar(pointer_w,str,1)){printf("%s\n",w);}
         }
-        numberOfChars=getWord(pointer_w); 
     }
 }
 int main(){
