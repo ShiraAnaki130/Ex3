@@ -6,7 +6,7 @@
 int getLine(char s[]){
     char c= getc(stdin);
     int index=0;
-    while(c!='\n'&&c!=EOF&&index<(LINE-1)){
+    while(c!='\r'&&c!='\n'&&c!=EOF&&index<(LINE-1)){
         s[index]=c;
         index++;
         c= getc(stdin);
@@ -32,7 +32,7 @@ int substring(char* str1, char* str2){
     return 0;
 }
 int similar(char *s, char *t, int n){
-    if(strcmp(s,t)==0&&n==0) return 1;
+    if(strcmp(s,t)==0&&n==1) return 1;
     if(strlen(s)<strlen(t)) return 0;
     int count=0;
     int i,j;
@@ -49,7 +49,7 @@ void print_lines(char *str){
     char s[LINE];
     char *poniter_s=s;
     int numberOfChars=getLine(poniter_s);
-    while(numberOfChars!=-1){ //as long as the the file did not end.
+    while(numberOfChars!=-1){
         if(substring(poniter_s,str)){printf("%s\n",s);}
         numberOfChars=getLine(poniter_s);
     }
